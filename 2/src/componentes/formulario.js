@@ -5,11 +5,11 @@ class Formulario extends Component {
 
 
     marcaRef = React.createRef();
-    yearRef = React.createRef()
+    yearRef = React.createRef();
     planBasicoRef = React.createRef();
-    planCompletoRef = React.createRef()
+    planCompletoRef = React.createRef();
     cotizarSeguro = (e) => {
-        const plan = this.planBasicoRef.current.cheked ? 'basico' : 'completo';
+        const plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
         e.preventDefault();
         console.log(this.marcaRef.current.value);
         const infoauto = {
@@ -19,6 +19,7 @@ class Formulario extends Component {
         }
         console.log(infoauto)
         this.props.cotizarSeguro(infoauto)
+        //reset formulario
         e.currentTarget.reset()
     }
     render() {
@@ -36,6 +37,7 @@ class Formulario extends Component {
                 <div className="form-group">
                     <label>Año</label>
                     <select name="year" className="form-control" ref={this.yearRef}>
+                    <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
